@@ -1,0 +1,404 @@
+<script>
+  console.log(
+  "this is the start dealing with premative and referance data type "
+);
+
+let name = "mohamed"; // this save in space in the memory
+let name2 = name; // this is saved in another space in the memory
+
+/* note That 
+    when you change name2 to another value that is  meaning that name will not change */
+name2 = "ahmed";
+console.log(`name : ${name} and name2 : ${name2}`); // name mohamed and name2 ahmed
+// bcz name didnt change that means it is immutable
+
+let person = {
+  //
+  name: "mohamed",
+  age: 25,
+};
+let person2 = person; // here js will save the person 2 in memory as a referance value to person object
+person2.age = 30;
+console.log(`person age : ${person.age} and  person2 age : ${person2.age}`);
+
+  /* ############################### Working With data types ############################### */
+  /*
+  
+  - number 
+  - string
+  - undefined
+  - null
+  - object 
+  */
+  // reference data type in javascript  // 
+
+  /*
+    1 : Object
+    2 : Array 
+    3 : Function 
+  */
+  /* swaping variable without using another middle varibles  */
+  let a = 15;
+  let b = 10;
+
+  a = a + b;    // a = 15 
+  b = a - b;    // b = 5 
+  a = a - b;    // a = 10
+  /*
+/* ##################################################### */
+
+  // arthemtic operation //
+  /* 
+   1 : +
+   2 : -
+   3 : *
+   4 : / 
+   5 : %
+   6 : ++
+   7 : --
+   8 : +=   
+   9 : -=
+   10 : x--
+   11 : x++
+
+   comparision 
+   12 : ==
+   13 : === strict comparision 
+   14 : <
+   15 : >
+   16 : <=
+   17 : >= 
+   18 : !=
+   19 : !== 
+ 
+//  working with number   
+
+   unary opertion
+
+     +'5' // this convert string to number  
+     -'5' // this convert string to number but negative
+     -'ahmed' // this convert it to NAN
+     
+
+// changing string to number
+
+     '10' + 10 // 20
+     'ha' + 10 // ha10
+     '10' - 5 //
+     'ha' - 5 // error
+
+    - Number("4.5")         // 4.5
+    - parseInt("5 ahmed"); // 5
+    - parseInt("5.5");     // 5 
+    - parseFloat("5.5")    // 5.5
+
+// Number object 
+
+   - console.log(Number.MAX_VALUE); // this print the large number 
+    you can work with in js ;
+   - console.log(Number.MAX_SAFE_INTEGER);// the safe value you can deal with
+   - console.log(Number.MIN_SAFE_INTEGER);
+   - Number.isSafeInteger(your value here); // this test the value that you work with
+   - Number.isInteger(value); // this is a check for the value is it a number or not 
+   - Number.isNAN(value); // if value is NAN that will return true 
+
+// Math object
+
+Math.abs()                  // convert " - num " to " + num "  
+Math.sqrt(6)                // 6^2 = 36  
+Math.pow(2,3)               // 2^3 = 8 
+Math.round(10.5)            // 11
+Math.ceil(10.1)             // 11
+Math.floor(10.9)            // 10
+Math.min(1,8,5,6,9,10)      // 1
+Math.min(1,8,5,6,9,10)      // 9   
+
+
+
+*/
+
+
+  /*
+  
+  var
+     - is global scope 
+     - any varible is declared using var is hosted 
+         - hoisting meaning : any varible declaration is going to the top of the code 
+  
+   let declaration using let is not hoisted 
+        * so u should define it first then u use it  
+        * their scope the block in wich they are defined , as will as in any contained sub block
+    
+   const :
+     - variable declared using const are constant variable , 
+       you cant assign to anoter value to them ,
+        except at the point where they are declared . 
+     - a constant can be global or local to a function where it is declared . 
+     - constants also share a feature with variables declared using let in that they are block-scoped
+          instead of function-scoped (and thus they are not hoisted )
+  */
+
+  /* ############################### Working With string ############################### */
+
+  /*
+  ==========================
+  convert number to string 
+  ==========================
+          
+             String(150)        // "150" // convert number to string
+             x.toSrting()       //  convert number to string 
+             100..toString()  
+             (100).toString   
+  ==========================       
+  working with string 
+  ==========================
+             - access   =>  [stringName][index]              => access  index 2 starting from 0 of the variable string 
+                        =>  [stringName].charAt()            => access  the index 10 start from 0  &&  retuen nothing if the index doesn't exist
+             - repeat   =>  [stringName].repeat(5)           => name is str variable that i want to repeat 5 times
+             - lenght   =>  [stringName].length()            => name is 
+             - access   =>  
+             - search   =>  [stringName].indexOf("l",2)      => search about l - start from index 2      - if  not exist returns -1
+                        =>  [stringName].lastIndexOf("", 2)  => search about l - start form last index 2 - if  not exist returns -1
+                        =>  [stringName].includes("l",2)     => search about l - start from index 2      - if  existed return true 
+                        =>  [stringName].startsWith("l",2)   => search about l - if it starts with l -> at the index   2 -> || returns true or false 
+                        =>  [stringName].endsWith("l",2)     => search about if the text ends with l at the lenght of  2 -> || returns true or false 
+           
+             - slice    =>  [stringName].slice(0,5)          => return the first 4 index || it works with negative index || [stringName].slice(-8,-5);
+                        =>  [stringName].substring(0,5)      => return the first 4 index || it doesnt works with negative index 
+                        =>  [stringName].substr(0,5)         => return from 0 to the length of five 
+             - split    =>  [stringName].split()    // retern the result in array 
+              ==========
+                  name = "mm ss rr"
+                  name.split(" "); // ["mm", "ss", "rr"]
+                  name.split(" ",3) // you tell it give me number of cut
+                  name.split("") // ["m","m"," ","s","s"," ","r","r"]
+              ==========
+          - string.trim() // this delete spaces from start and finish not in the middle 
+             >> note that
+                 sting is consider(sequance value )when stored in stored in memory it stored in defferant places 
+                 bcz of that you can count any string 
+                  // return the lenght
+             name.charAt(10)    // 
+             >> note that : name[]        // retuen undefined if the index doesn't exist        
+  */
+
+
+
+  /* ############################### Working With Array ############################### */
+
+
+  /*
+   ==========================
+           Array >>  Basics 
+   ==========================     
+   
+           - access      => [][index][index]                        => name[] => one dimensional  name[][] => two dimensional  name[][][] => 3d array
+           - length      => [].length()                             => get the length of the array 
+           - pop         => [].pop("value")                         => remove last index 
+           - push()      => [].push("value")                        => add in last index 
+           - shift       => [].shift()                              => remove the first element 
+           - unshift(60) => [].unshift()                            => add to start 
+           - modify      => [][index]= value                        => modify element in specific index 
+           - splice      => [].splice(start, count, add, add)       => for adding or deleting values in the array && it will change the array 
+           - slice       => [].slice(start, end)                    => take slice from array  && it dosent affect on it  
+           - indexOF     => [].indexOf("vale", search-start-index)  => search in array about a value and return its index if it doesent find the index it returns -1 
+           - lastindex   => [].lastIndexOf("value",lastIndex)       => search but forn last to start 
+           - include     => [].include("value", index)              => search for the calue is in array or not if not return -1
+           - reverse     => [].reverse()                            => reverse the array
+           - sort        => [].sort()                               => abc or 123
+           - concat      => [].concat(array1,array2)                => array1 + array2
+           - join        => [].join()                               => this will print the array as a string 
+  
+   ==========================
+           Array >> ES6 >> 
+   ==========================
+               const s = [5, 6, 7];
+               s = [1, 2, 3];   // this will cause error bcz now we want to change the total array
+               s[2] = 45;
+               console.log(s); // [5,6,45]
+   
+  /* ############################### Working With conditions ############################### */
+  /*
+         
+             - if condtion
+             - switch case condition  
+         
+             1 : if .. else  
+             x == y ? true             : false; this is called Ternary Operator simple way to write if statment 
+             int a = 1, b = 2, ans;
+             ans = (a == 1 ? (b == 2 ? 3 : 5) : 0);
+         
+             2 : if .. else if 
+         
+             3 : Switch()  { case : break ; default:  } 
+          
+                 let x = 10;
+                 let y = 11;
+                 x == y ? true : false;
+                 let c = 1, d = 2, ans;
+                 ans = (a == 1 ? (b == 2 ? 3 : 5) : 0);
+             
+         */
+
+  /* ############################### Working With function ############################### */
+  /*   
+  ==========================                
+    Basics
+  ==========================   
+          
+                  function move( price , taxes, ads){} // this is the 
+                  
+                  return // its not return anything  comming after it 
+                  return a , v ; => it will retun [v]value 
+                  function can be assigned to the variable
+                  * function mm(){ } // this is the fuction declaration 
+                  * let m = function (){ } // this is function exprestion 
+                  
+                  // hoisting  => mean that js 
+                   * var => it work with hoisting 
+                   * let => not work with hoisting 
+                   * function declation working with hoisting 
+                   * function expersion not woring with hoisting 
+                   * note that every function is hoisted in its scope 
+                   * any parameter you didnt assign a value in it .. it will retern a value 
+                   * function mm(num1, num2) // num1 & num2 is called paramter 
+                   * mm(10,20) // 10 , 20 is called argument
+                   * function(...num){} these function can reseive any number of paramenters
+                   * arrow function  
+                   
+  ==========================                
+  
+  ==========================
+          /*  there is two type of function return type and non return type 
+             return type doesnt retern back any value 
+          */
+  function sum(a, b) {
+    let sum = a + b;
+    return sum;
+  } // this is retern type function  
+
+  console.log("the sum is sum : " + sum(10, 20));
+  // function expression : 
+
+  /* js allows us to assign a function to a varible 
+  and then use that varible as a function like the following 
+  */
+  const maltiply = (a, b) => { a * b } // [ arrow function ]  you delete bracks if u have just one line 
+
+  // [ recursive function ]
+
+  // recurcive fucion can do what for loop do in simple and clean way 
+  // recursive not faster than for loop but its simple and clean 
+
+  function factorial(n) {
+    if (n < 1) return 1;     // this condtion for stop calling itself 
+    return n * factorial(n - 1);
+  }
+  console.log(factorial(2));
+
+  // count down recurisve 
+
+  function countDown(fromNumber) {
+    return (fromNumber < 1) ? 0 : fromNumber + countDown(fromNumber - 1);
+  } // i used 0 because it is not affect on addition 
+  console.log(countDown(3));
+
+
+
+
+  /* ############################### Working With object ############################### */
+
+
+  /*  
+  ==========================
+    - object >> basics 
+  ==========================        
+              object creation                        => let objectName = new Object();                          => called constractor
+                                                     => let person = new object({ name: "mohamed", age: 15})    => example
+                                                     => let user1 = Object.create(user2)                        => here i create object from another \object
+                                                     => let myObj = { name: "mohamed", age: 15}                 => called leteral creation 
+                                                     => let obj4 = Object.assign(obj1,obj2,obj3,{})             => this make me creat one object from different objects
+  
+              access object [prop || meth]              => obj_name.attribute_name                                 => is called dot notation
+                                                        => obj_name["attribute_name || method_name"]               => bracket notation
+              [adding || edit] object [prop || meth]    => obj_name.name = "mm";                                   => name ? overwrite : adding new prop 
+              Deleting object [prop || meth]            => delete person.age                                       => this will delete prop age 
+          
+             
+              the following is construction fuction         => example
+                                 
+                                  function emp(id,name,salary){  
+                                  this.id=id;  
+                                  this.name=name;  
+                                  this.salary=salary;  
+                                  }  
+                                 e = new emp(103,"Vimal Jaiswal",30000);  => this make object and assign these values to the prop 
+                            
+                              object destruction                            => example   
+                            const { firstName, lastName, address: { streatNum } } = person ; 
+                            console.log(`this first name from object destruction is ` + firstName + Object.keys(person))
+          
+  */
+
+
+
+  /* ############################### Working With this keyword ############################### */
+
+
+  /*
+              - this value is dependening on its position 
+                 * if u use it inside the method of the object >> it will refare to the owner of this object
+                 * in the global scope it refare to the window pbject 
+                 * in public function it refare to window
+                 * in function in strict mode this refer to undefine 
+                 * in event this refer to the element that have the element 
+                
+                 =>
+                      “use strict”; function func(){ return this; }
+                 => 
+                      <button onclick=”this.style.color=‘red’“> Submit </button>
+  */
+  /* ############################### Working With spreed operator ############################### */
+
+  // spread / rest syntax in javascript  // 
+  /*
+          let animal = ['dog', 'duck', 'cat'];
+          let ZooAnimal = ['tiger', 'corocodile', ...animal]
+          // you can use spread operator also with the object 
+          let example1 = {
+              name: "medo",
+              age: 24
+          };
+          let example2 = {
+              ...example1,
+              pass: true
+          }
+          console.log(example2);
+  
+  */
+
+  // spread / loops and iteration in javascript  // 
+  /*
+  1 : while 
+  2 : do .. while 
+  3 : for loop 
+  4 : for in 
+  5 : for of 
+  6 : for each 
+  */
+  let prodcast = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  prodcast.forEach(index => {
+    console.log(index);
+  });
+  // foreach with object  if you want to print the value we change keys to value 
+  Object.keys(example1).forEach((key) => {
+    console.log(key); // name , age  
+  })
+        /* ##################################################### */
+
+
+  /* ############################### Working With this keyword ############################### */
+
+
+
+</script>

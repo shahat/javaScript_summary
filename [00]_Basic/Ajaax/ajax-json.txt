@@ -1,0 +1,82 @@
+table of content 
+
+    ajax : asynchronous javascript and xml  
+    you can retrieve data from a url without having to this will do a full page refresh
+    
+  synchronous : u cant send the second request utill you recieve the response of the first requist تبعت الريكويست وستتنى الريسبونس 
+
+ابسط مثال لل اجكس هوا لما تيجي تكتب فى جوجل ويطلعلط نتايج مشابه للى انتا بتحاول تبحث عنه ك اوتو كومبليت 
+
+
+we can create the ajax requiest using the xhr object [ xml http requiest ]
+ ودا عباره عن api عنده شويه properties و methods 
+
+// proberties 
+   
+  event what we listen on it is :
+      1-  .onreadystatedictionary 
+      2 - .readystate // tell me the state of the request 
+                       بمعنى اخر حاله الريكويت وصلت لفين 
+                       
+   readyState  0               >   1    >     2    >     3     >      4 
+              unitializied   loading    loaded    interactive   complete
+      
+      -  0 : unitialized : no request yet 
+      -  1 :  loading    : me have request and its loading
+      -  2 :  loaded     : my request totaly loaded 
+      -  3 : interactive : not all the request data send so still data loaded
+      -  4 : complete     : no i can interact with the data 
+
+
+.status : return the state as a number 200 meaning okay all the request to okay 
+.statusText : it return the samething in status but as textformat  
+           like ok or not found 
+
+- status code meaning 
+
+   1xx  > this the the informational
+   2xx  > success 
+   3XX  > redirection 
+   4XX  > client error  انك طلبت لينك مش موجود  
+      5XX  > server error 503    الكونكش واقع مع السيرفر
+ 
+ - .responseText : Return the response as a string 
+
+
+
+// methods 
+
+  open("method", url ,optional parameter )
+   method => define wich method that you are using to make the requiest get or post
+  send(content) // if me use post if any content i want to send i pass it as parameter to the send function  
+
+
+ -----------------------------------------
+  var xhr = new XMLHttpRequest();
+  var respText = "";
+  xhr.onreadystatechange = function(){
+    if( xhr.readyState == 4 ){
+      if(xhr.status == 200 ){
+        txt = xhr.responseText;
+        document.getElementByTageName("div")[0].innerHTML = txt ;
+      }
+    }
+  }
+  xhr.open("GET","simple.txt") // work asynchronous  
+  xhr.send("")
+-----------------
+json 
+// you can replace the simple.txt with the url of the json 
+  var xhr = new XMLHttpRequest();
+  var respText = "";
+  xhr.onreadystatechange = function(){
+    if( xhr.readyState == 4 ){
+      if(xhr.status == 200 ){   
+        jsonobj = xhr.responseText;  // the request comming from the response
+        jsobj = JSON.parse(jsonobj) // to conver the json to javascript object 
+        document.getElementByTageName("div")[0].innerHTML = txt ;
+      }
+    }
+  }
+  xhr.open("GET","simple.txt") // work asynchronous  
+  xhr.send("")
